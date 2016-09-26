@@ -15,9 +15,6 @@ class AmqpcppConan(ConanFile):
     exports = "CMakeLists.txt"
     generators = "cmake", "txt"
 
-    def config(self):
-        pass
-
     def source(self):
         tarball_name = "v%s.tar.gz" % self.version
         download("https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/%s" % tarball_name, tarball_name)
