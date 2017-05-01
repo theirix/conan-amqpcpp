@@ -5,9 +5,10 @@ import shutil
 
 class AmqpcppConan(ConanFile):
     name = "amqpcpp"
-    version = "2.6.2"
+    version = "2.7.0"
     url = "https://github.com/theirix/conan-amqpcpp"
     license = "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/blob/master/LICENSE"
+    description = "C++ library for asynchronous non-blocking communication with RabbitMQ"
     FOLDER_NAME = 'AMQP-CPP-%s' % version
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
@@ -18,7 +19,7 @@ class AmqpcppConan(ConanFile):
     def source(self):
         tarball_name = "v%s.tar.gz" % self.version
         download("https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/%s" % tarball_name, tarball_name)
-        check_sha1(tarball_name, "952dd2d455c9c45ffea292e15ea58bab1622b5b3")
+        check_sha1(tarball_name, "7fa2a1eb179ffd8770a0b35f3c84d1376300b9be")
         untargz(tarball_name)
         os.unlink(tarball_name)
         shutil.move("%s/CMakeLists.txt" % self.FOLDER_NAME, "%s/CMakeListsOriginal.cmake" % self.FOLDER_NAME)

@@ -9,7 +9,7 @@ class DefaultNameConan(ConanFile):
     name = "DefaultName"
     version = "0.1"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "amqpcpp/2.6.2@%s/%s" % (username, channel)
+    requires = "amqpcpp/2.7.0@%s/%s" % (username, channel)
     generators = "cmake"
 
     def build(self):
