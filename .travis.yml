@@ -6,7 +6,7 @@ language: python
 env:
   global:
     - CONAN_UPLOAD=1
-    - CONAN_REFERENCE="amqpcpp/2.7.0"
+    - CONAN_REFERENCE="amqpcpp/2.7.2"
     - CONAN_USERNAME="theirix"
     - CONAN_CHANNEL="ci"
     - CONAN_TOTAL_PAGES=1
