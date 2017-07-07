@@ -5,7 +5,7 @@ sudo: required
 language: python
 env:
   global:
-    - CONAN_UPLOAD="https://api.bintray.com/theirix/conan-repo"
+    - CONAN_UPLOAD="https://api.bintray.com/conan/theirix/amqpcpp"
     - CONAN_REFERENCE="amqpcpp/2.7.4"
     - CONAN_USERNAME="theirix"
     - CONAN_CHANNEL="ci"
