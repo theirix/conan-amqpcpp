@@ -47,15 +47,10 @@ class AmqpcppConan(ConanFile):
         if self.options.shared:
             if self.settings.os == "Macos":
                 self.copy(pattern="*.dylib", dst="lib", keep_path=False)
-            elif self.settings.os == "Windows":
-                self.copy(pattern="*.dll", dst="lib", keep_path=False)
             else:
                 self.copy(pattern="*.so*", dst="lib", keep_path=False)
         else:
-            if self.settings.os == "Windows":
-                self.copy(pattern="*.lib", dst="lib", keep_path=False)
-            else:
-                self.copy(pattern="*.a", dst="lib", keep_path=False)
+            self.copy(pattern="*.a", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ['amqp-cpp']
