@@ -25,9 +25,13 @@ class AmqpcppConan(ConanFile):
         shutil.move("%s/CMakeLists.txt" % self.FOLDER_NAME, "%s/CMakeListsOriginal.cmake" % self.FOLDER_NAME)
         shutil.move("CMakeLists.txt", "%s/CMakeLists.txt" % self.FOLDER_NAME)
 
+    def configure(self):
+        if self.settings.os == "Windows":
+            raise ConanException("Windows is not supported by upstream")
+
     def build(self):
         cmake = CMake(self.settings)
-        
+
         # compose cmake options
         extra_command_line = ''
         if self.options.shared:
