@@ -27,7 +27,7 @@ class AmqpcppConan(ConanFile):
 
     def configure(self):
         if self.settings.os == "Windows":
-            raise ConanException("Windows is not supported by upstream")
+            raise Exception("Windows is not supported by upstream")
 
     def build(self):
         cmake = CMake(self.settings)
@@ -46,6 +46,7 @@ class AmqpcppConan(ConanFile):
         self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
+        self.copy("license*", src="%s" % (self.FOLDER_NAME), dst="licenses", ignore_case=True, keep_path=False)
         self.copy("*.h", dst="include/amqpcpp", src="%s/include" % (self.FOLDER_NAME))
         self.copy("amqpcpp.h", dst="include", src="%s" % (self.FOLDER_NAME))
         if self.options.shared:
