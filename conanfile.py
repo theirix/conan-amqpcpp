@@ -1,11 +1,11 @@
-from conans import ConanFile, CMake
+from conans import ConanFile, CMake, tools
 from conans.tools import download, untargz, check_sha1, replace_in_file
 import os
 import shutil
 
 class AmqpcppConan(ConanFile):
     name = "amqpcpp"
-    version = "2.7.2"
+    version = "2.7.4"
     url = "https://github.com/theirix/conan-amqpcpp"
     license = "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/blob/master/LICENSE"
     description = "C++ library for asynchronous non-blocking communication with RabbitMQ"
@@ -19,7 +19,7 @@ class AmqpcppConan(ConanFile):
     def source(self):
         tarball_name = "v%s.tar.gz" % self.version
         download("https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/%s" % tarball_name, tarball_name)
-        check_sha1(tarball_name, "20819912cf095baccc4c8979ccb07cbb01a6fee8")
+        check_sha1(tarball_name, "76ba6f00d2ac96ef171da85bcfadd985e7d0b567")
         untargz(tarball_name)
         os.unlink(tarball_name)
         shutil.move("%s/CMakeLists.txt" % self.FOLDER_NAME, "%s/CMakeListsOriginal.cmake" % self.FOLDER_NAME)
