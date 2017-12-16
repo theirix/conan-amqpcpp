@@ -3,7 +3,7 @@
 
 # conan-amqpcpp
 
-[Conan.io](https://conan.io) package for [amqpcpp](https://github.com/open-source-parsers/amqpcpp) library
+[Conan.io](https://conan.io) package for [amqpcpp](https://github.com/CopernicaMarketingSoftware/AMQP-CPP) library
 
 The packages generated with this **conanfile** can be found in [conan.io](https://conan.io/source/amqpcpp/2.7.4/theirix/stable).
 
