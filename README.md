@@ -5,7 +5,7 @@
 
 [Conan.io](https://conan.io) package for [amqpcpp](https://github.com/CopernicaMarketingSoftware/AMQP-CPP) library
 
-The packages generated with this **conanfile** can be found in [conan.io](https://conan.io/source/amqpcpp/2.7.4/theirix/stable).
+The packages generated with this **conanfile** can be found in [conan.io](https://conan.io/source/amqpcpp/2.8.0/theirix/stable).
 
 ## Build packages
 
@@ -14,20 +14,20 @@ The packages generated with this **conanfile** can be found in [conan.io](https:
     
 ## Upload packages to server
 
-    $ conan upload amqpcpp/2.7.4@theirix/stable --all
+    $ conan upload amqpcpp/2.8.0@theirix/stable --all
     
 ## Reuse the packages
 
 ### Basic setup
 
-    $ conan install amqpcpp/2.7.4@theirix/stable
+    $ conan install amqpcpp/2.8.0@theirix/stable
     
 ### Project setup
 
 If you handle multiple dependencies in your project is better to add a *conanfile.txt*
     
     [requires]
-    amqpcpp/2.7.4@theirix/stable
+    amqpcpp/2.8.0@theirix/stable
 
     [options]
     amqpcpp:shared=true # false

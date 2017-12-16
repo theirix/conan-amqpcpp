@@ -7,7 +7,7 @@ username = os.getenv("CONAN_USERNAME", "theirix")
 
 class TestPackageConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "amqpcpp/2.7.4@%s/%s" % (username, channel)
+    requires = "amqpcpp/2.8.0@%s/%s" % (username, channel)
     generators = "cmake"
 
     def build(self):
