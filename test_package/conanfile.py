@@ -1,13 +1,8 @@
 from conans import ConanFile, CMake, tools, RunEnvironment
 import os
 
-# This easily allows to copy the package in other user or channel
-channel = os.getenv("CONAN_CHANNEL", "stable")
-username = os.getenv("CONAN_USERNAME", "theirix")
-
 class TestPackageConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "amqpcpp/2.8.0@%s/%s" % (username, channel)
     generators = "cmake"
 
     def build(self):
