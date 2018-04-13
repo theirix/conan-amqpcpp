@@ -14,6 +14,10 @@ class AmqpcppConan(ConanFile):
     exports = "CMakeLists.txt"
     generators = "cmake"
 
+    @property
+    def majorver(self):
+        return int(self.version.split('.')[0])
+
     def source(self):
         tools.get("https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v%s.tar.gz" % self.version)
         os.rename("AMQP-CPP-%s" % (self.version), self.name)
@@ -22,12 +26,23 @@ class AmqpcppConan(ConanFile):
         if self.settings.os == "Windows":
             raise Exception("Windows is not supported by upstream")
 
+    def requirements(self):
+        if int(self.majorver) >= 3:
+            self.requires.add("OpenSSL/1.0.2n@conan/stable")
+
     def build(self):
         shutil.move("%s/CMakeLists.txt" % self.name, "%s/CMakeListsOriginal.cmake" % self.name)
         shutil.move("CMakeLists.txt", "%s/CMakeLists.txt" % self.name)
         cmake = CMake(self)
 
-        cmake.definitions['BUILD_SHARED'] = self.options.shared
+        if self.majorver == 2:
+            cmake.definitions['BUILD_SHARED'] = self.options.shared
+
+        if self.majorver >= 3:
+            cmake.definitions['AMQP-CPP_BUILD_SHARED'] = self.options.shared
+            cmake.definitions['AMQP-CPP_BUILD_EXAMPLES'] = False
+            cmake.definitions['AMQP-CPP_LINUX_TCP'] = True
+
         # avoid rpath
         if self.settings.os == "Macos":
             cmake.definitions['CMAKE_SKIP_RPATH'] = True
@@ -37,7 +52,10 @@ class AmqpcppConan(ConanFile):
 
     def package(self):
         self.copy("license*", src="%s" % (self.name), dst="licenses", ignore_case=True, keep_path=False)
-        self.copy("*.h", dst="include/amqpcpp", src="%s/include" % (self.name))
+        if self.majorver >= 3:
+            self.copy("*.h", dst="include", src="%s/include" % (self.name))
+        else:
+            self.copy("*.h", dst="include/amqpcpp", src="%s/include" % (self.name))
         self.copy("amqpcpp.h", dst="include", src="%s" % (self.name))
         if self.options.shared:
             if self.settings.os == "Macos":
