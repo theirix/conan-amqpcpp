@@ -4,7 +4,7 @@ import shutil
 
 class AmqpcppConan(ConanFile):
     name = "amqpcpp"
-    version = "2.8.0"
+    version = "3.0.0"
     url = "https://github.com/theirix/conan-amqpcpp"
     license = "Apache-2.0"
     description = "C++ library for asynchronous non-blocking communication with RabbitMQ"
