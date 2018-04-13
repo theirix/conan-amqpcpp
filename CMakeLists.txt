@@ -1,5 +1,5 @@
-PROJECT(conan-amqpcpp)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.2)
+project(conan-amqpcpp)
 include(${CMAKE_CURRENT_SOURCE_DIR}/../conanbuildinfo.cmake)
-CONAN_BASIC_SETUP()
+conan_basic_setup()
 include("CMakeListsOriginal.cmake")

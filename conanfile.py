@@ -6,13 +6,13 @@ class AmqpcppConan(ConanFile):
     name = "amqpcpp"
     version = "2.8.0"
     url = "https://github.com/theirix/conan-amqpcpp"
-    license = "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/blob/master/LICENSE"
+    license = "Apache-2.0"
     description = "C++ library for asynchronous non-blocking communication with RabbitMQ"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
     exports = "CMakeLists.txt"
-    generators = "cmake", "txt"
+    generators = "cmake"
 
     def source(self):
         tools.get("https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v%s.tar.gz" % self.version)
