@@ -51,10 +51,6 @@ class AmqpcppConan(ConanFile):
             cmake.definitions['AMQP-CPP_BUILD_EXAMPLES'] = False
             cmake.definitions['AMQP-CPP_LINUX_TCP'] = True
 
-        # avoid rpath
-        if self.settings.os == "Macos":
-            cmake.definitions['CMAKE_SKIP_RPATH'] = True
-
         cmake.configure(source_folder=self._source_subfolder)
         # do not install because versions 2 and 3 differs a lot in layout
         cmake.build()
