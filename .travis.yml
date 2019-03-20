@@ -1,7 +1,7 @@
 
 env:
    global:
-     - CONAN_REFERENCE: "amqpcpp/4.1.3"
+     - CONAN_REFERENCE: "amqpcpp/4.1.4"
      - CONAN_USERNAME: "theirix"
      - CONAN_LOGIN_USERNAME: "theirix"
      - CONAN_CHANNEL: "ci"
