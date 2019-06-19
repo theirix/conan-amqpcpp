@@ -4,7 +4,7 @@ from conans import ConanFile, CMake, tools
 
 class AmqpcppConan(ConanFile):
     name = "amqpcpp"
-    version = "4.1.4"
+    version = "4.1.5"
     url = "https://github.com/theirix/conan-amqpcpp"
     author = "theirix@gmail.com"
     homepage = "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
